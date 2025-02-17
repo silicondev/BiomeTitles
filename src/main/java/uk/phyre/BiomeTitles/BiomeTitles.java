@@ -4,7 +4,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.plugin.java.JavaPlugin;
-
 import java.io.File;
 
 public final class BiomeTitles extends JavaPlugin {

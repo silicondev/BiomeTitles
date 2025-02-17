@@ -1,15 +1,8 @@
 package uk.phyre.biomeTitles;
 
-import org.bukkit.Input;
 import org.bukkit.plugin.java.JavaPlugin;
 import uk.phyre.biomeTitles.Models.BiomeTitleInfo;
 import uk.phyre.biomeTitles.Models.TitleInfo;
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.ObjectInputFilter;
-import java.nio.charset.StandardCharsets;
-import java.util.stream.Collectors;
 
 public class ConfigManager {
     private final JavaPlugin _plugin;
