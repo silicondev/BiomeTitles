@@ -2,10 +2,13 @@ package uk.phyre.biomeTitles;
 
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
+import org.bukkit.ChatColor;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.plugin.java.JavaPlugin;
+import uk.phyre.biomeTitles.Helpers.MessageHelper;
 
 import java.io.ObjectInputFilter;
 
@@ -46,10 +49,10 @@ public class BiomeListener implements Listener {
                     player.sendTitle(info.title, info.subtitle, titleInfo.FadeIn, titleInfo.Stay, titleInfo.FadeOut);
                     break;
                 case "chat":
-                    player.spigot().sendMessage(ChatMessageType.CHAT, new TextComponent(String.format("%s | %s", info.title, info.subtitle)));
+                    player.spigot().sendMessage(ChatMessageType.CHAT, new TextComponent(String.format("%s §r§f| %s", info.title, info.subtitle)));
                     break;
                 case "actionbar":
-                    player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(String.format("%s | %s", info.title, info.subtitle)));
+                    player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(String.format("%s §r§f| %s", info.title, info.subtitle)));
                     break;
                 default:
                     _plugin.getLogger().warning(String.format("[BiomeTitles] CONFIG ERROR - '%s' is not a valid display.", info.display));

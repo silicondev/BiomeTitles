@@ -1,4 +1,4 @@
-package uk.phyre.biomeTitles;
+package uk.phyre.biomeTitles.Helpers;
 
 public final class CastHelper {
     public static Boolean parseBoolean(String str) {

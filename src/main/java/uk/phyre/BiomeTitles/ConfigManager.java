@@ -29,9 +29,9 @@ public class ConfigManager {
             return null;
 
         var info = new BiomeTitleInfo();
-        info.title = conf.getString(String.format("biomes.%s.title", biomeName));
-        info.subtitle = conf.getString(String.format("biomes.%s.subtitle", biomeName));
-        info.display = conf.getString(String.format("biomes.%s.display", biomeName));
+        info.title = conf.getString(String.format("biomes.%s.title", biomeName)).replace("&", "§");
+        info.subtitle = conf.getString(String.format("biomes.%s.subtitle", biomeName)).replace("&", "§");
+        info.display = conf.getString(String.format("biomes.%s.display", biomeName)).replace("&", "§");
 
         return info;
     }

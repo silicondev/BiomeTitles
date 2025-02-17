@@ -1,4 +1,4 @@
-package uk.phyre.biomeTitles;
+package uk.phyre.biomeTitles.Helpers;
 
 import java.util.LinkedList;
 import java.util.List;
