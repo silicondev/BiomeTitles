@@ -1,0 +1,13 @@
+titleInfo:
+  fadeIn: 1000
+  stay: 1000
+  fadeOut: 1000
+biomes:
+  plains:
+    title: 'Plains Biome!'
+    subtitle: 'Vanilla biomes do not need namespaces'
+    display: 'chat'
+  "namespace:example":
+    title: 'Example Biome!'
+    subtitle: '3rd party biomes need namespaces'
+    display: 'title'

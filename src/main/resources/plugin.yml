@@ -1,0 +1,15 @@
+name: BiomeTitles
+version: '1.0-SNAPSHOT'
+main: uk.phyre.biomeTitles.BiomeTitles
+api-version: '1.21'
+commands:
+  biometitles:
+    description: BiomeTitles parent command
+    usage: /biometitles
+permissions:
+  biometitles.reload:
+    description: Allows the user to reload the plugin.
+    default: op
+  biometitles.debug:
+    description: Allows the user to enable or disable debug mode.
+    default: op
