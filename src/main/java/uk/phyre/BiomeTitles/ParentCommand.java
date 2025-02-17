@@ -3,11 +3,25 @@ package uk.phyre.biomeTitles;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class ParentCommand implements CommandExecutor {
+import java.util.Arrays;
+import java.util.List;
+
+public class ParentCommand implements CommandExecutor, TabCompleter {
     private final JavaPlugin _plugin;
+
+    private static final List<String> _baseTabComplete = Arrays.asList(
+        "reload",
+        "debug"
+    );
+
+    private static final List<String> _debugTabComplete = Arrays.asList(
+        "enabled",
+        "disabled"
+    );
 
     public ParentCommand(JavaPlugin plugin) {
         _plugin = plugin;
@@ -38,6 +52,18 @@ public class ParentCommand implements CommandExecutor {
 
         sender.sendMessage("[BiomeTitles] Command not recognised");
         return true;
+    }
+
+    @Override
+    public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
+        if (!command.getName().equalsIgnoreCase("biometitles"))
+            return null;
+
+        if (args.length == 2)
+            return ListHelper.GetStartsWith(_baseTabComplete, args[0]);
+        else if (args.length == 3 && args[1].equalsIgnoreCase("debug"))
+            return ListHelper.GetStartsWith(_debugTabComplete, args[2]);
+        return null;
     }
 
     private boolean reloadCommand(CommandSender sender) {
