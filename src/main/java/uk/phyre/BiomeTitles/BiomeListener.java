@@ -34,9 +34,11 @@ public class BiomeListener implements Listener {
                 _plugin.getLogger().info(String.format("[BiomeTitles] Player '%s' entering biome '%s'", player.getDisplayName(), biomeName));
 
             var info = _config.GetBiomeInfo(biomeName);
-
             if (info == null)
                 return;
+
+            if (BiomeTitles.DEBUG_MODE)
+                _plugin.getLogger().info(String.format("[BiomeTitles] Found details for '%s': '%s', '%s', display: %s", biomeName, info.title, info.subtitle, info.display));
 
             switch (info.display) {
                 case "title":

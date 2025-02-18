@@ -18,13 +18,13 @@ public class ConfigManager {
 
         var conf = _plugin.getConfig();
 
-        if (!conf.contains("biomes." + biomeName.toLowerCase()))
+        if (!conf.contains("biomes." + biomeName.toUpperCase()))
             return null;
 
         var info = new BiomeTitleInfo();
-        info.title = conf.getString(String.format("biomes.%s.title", biomeName)).replace("&", "§");
-        info.subtitle = conf.getString(String.format("biomes.%s.subtitle", biomeName)).replace("&", "§");
-        info.display = conf.getString(String.format("biomes.%s.display", biomeName)).replace("&", "§");
+        info.title = conf.getString(String.format("biomes.%s.title", biomeName.toUpperCase())).replace("&", "§");
+        info.subtitle = conf.getString(String.format("biomes.%s.subtitle", biomeName.toUpperCase())).replace("&", "§");
+        info.display = conf.getString(String.format("biomes.%s.display", biomeName.toUpperCase())).replace("&", "§");
 
         return info;
     }
