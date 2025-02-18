@@ -8,7 +8,7 @@ import java.io.File;
 
 public final class BiomeTitles extends JavaPlugin {
 
-    private static String VERSION = "1.0";
+    private static String VERSION = "1.1";
     public static boolean DEBUG_MODE = false;
 
     @Override
