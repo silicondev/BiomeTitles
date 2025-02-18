@@ -1,8 +1,12 @@
 package uk.phyre.biomeTitles;
 
+import org.bukkit.block.Biome;
 import org.bukkit.plugin.java.JavaPlugin;
 import uk.phyre.biomeTitles.Models.BiomeTitleInfo;
 import uk.phyre.biomeTitles.Models.TitleInfo;
+
+import java.util.LinkedList;
+import java.util.List;
 
 public class ConfigManager {
     private final JavaPlugin _plugin;
@@ -36,5 +40,27 @@ public class ConfigManager {
         info.Stay = conf.getInt("titleInfo.stay");
         info.FadeOut = conf.getInt("titleInfo.fadeOut");
         return info;
+    }
+
+    public List<String> GetBiomeGroups(String biomeName) {
+        var conf = _plugin.getConfig();
+
+        var groups = conf.getList("biomeGroups");
+        var list = new LinkedList<String>();
+
+        if (groups != null) {
+            for (Object biomes : groups) {
+                if (biomes instanceof List && ((List<?>) biomes).stream().anyMatch(x -> ((String)x).equalsIgnoreCase(biomeName))) {
+                    list.addAll((List<String>)biomes);
+                }
+            }
+        }
+
+        if (BiomeTitles.DEBUG_MODE)
+            _plugin.getLogger().info(String.format("Found %s biomes that match group of %s", list.size(), biomeName));
+
+        list.removeIf(x -> x.equalsIgnoreCase(biomeName));
+
+        return list;
     }
 }

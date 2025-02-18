@@ -1,7 +1,11 @@
 titleInfo:
-  fadeIn: 1000
-  stay: 1000
-  fadeOut: 1000
+  fadeIn: 10
+  stay: 70
+  fadeOut: 20
+biomeGroups:
+  - ['birch_forest', 'old_growth_birch_forest']
+  - ['taiga', 'old_growth_spruce_taiga', 'old_growth_pine_taiga']
+  - ['these', 'biomes', 'wont', 'register', 'movement', 'between']
 biomes:
   plains:
     title: 'Plains Biome!'

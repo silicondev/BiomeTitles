@@ -26,10 +26,12 @@ public class BiomeListener implements Listener {
         if (to == null)
             return;
 
-        if (!from.getBlock().getBiome().equals(to.getBlock().getBiome())) {
-            // Player has entered new biome
-            var biomeName = to.getBlock().getBiome().toString();
+        var fromBiome = from.getBlock().getBiome();
+        var toBiome = to.getBlock().getBiome();
+        var biomeName = toBiome.toString();
 
+        if (!fromBiome.equals(toBiome) && _config.GetBiomeGroups(fromBiome.toString()).stream().noneMatch(x -> x.equalsIgnoreCase(biomeName))) {
+            // Player has entered new biome, and new biome is not in the same group as the last one
             if (BiomeTitles.DEBUG_MODE)
                 _plugin.getLogger().info(String.format("[BiomeTitles] Player '%s' entering biome '%s'", player.getDisplayName(), biomeName));
 
