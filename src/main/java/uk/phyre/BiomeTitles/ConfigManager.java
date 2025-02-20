@@ -44,10 +44,12 @@ public class ConfigManager {
 
     public List<String> GetBiomeGroups(String biomeName) {
         var conf = _plugin.getConfig();
-
-        var groups = conf.getList("biomeGroups");
         var list = new LinkedList<String>();
 
+        if (!conf.contains("biomeGroups"))
+            return list;
+
+        var groups = conf.getList("biomeGroups");
         if (groups != null) {
             for (Object biomes : groups) {
                 if (biomes instanceof List && ((List<?>) biomes).stream().anyMatch(x -> ((String)x).equalsIgnoreCase(biomeName))) {
@@ -62,5 +64,12 @@ public class ConfigManager {
         list.removeIf(x -> x.equalsIgnoreCase(biomeName));
 
         return list;
+    }
+
+    public List<String> GetDisabledRegions() {
+        var conf = _plugin.getConfig();
+        if (!conf.contains("disabledRegions"))
+            return new LinkedList<String>();
+        return conf.getStringList("disabledRegions");
     }
 }
